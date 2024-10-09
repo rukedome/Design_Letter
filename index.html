@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2C3E50;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .envelope img {
+      width: 400px
+    }
+
+    .start-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #C0392B;
+      color: rgba(255, 255, 255, 0.5);
+      filter: blur(4px);
+      border: none;
+      border-radius: 5px;
+      font-size: 3rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .start-button:hover {
+      color: rgba(255, 255, 255, 1);
+      filter: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="envelope">
+      <img src="./images/letter.svg">
+    </div>
+    <button class="start-button" id="startButton">Let's start writing letter!</button>
+  </div>
+
+  <script>
+    document.getElementById('startButton').addEventListener('click', function() {
+      window.location.href = 'main.html';
+    });
+  </script>
+</body>
+
+</html>

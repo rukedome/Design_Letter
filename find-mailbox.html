@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mailbox Carousel</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    body {
+      background-color: #2C3E50;  
+      font-size: 1rem;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .carousel-container {
+      width: 90%;
+      max-width: 1200px;
+      text-align: center;
+      color: white;
+    }
+
+    h2 {
+      margin-bottom: 50px;
+      font-size: 3vw;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      background-color: #345B8C;
+      margin: 0 auto;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.4s ease;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 300px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: 32px; /* 버튼 크기 확대 */
+      cursor: pointer;
+      padding: 20px; /* 버튼 크기 확대 */
+      border-radius: 50%;
+      color: #345B8C;
+      user-select: none;
+    }
+
+    .prev-btn {
+      left: 50px;
+    }
+
+    .next-btn {
+      right: 50px;
+    }
+
+    .prev-btn:hover,
+    .next-btn:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="main.html" style="height: 20px;"><img src="./images/logo.png"></a>
+      <span>Letters to Strangers</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="write-letter.html">Write a Letter</a></li>
+        <li><a href="find-mailbox.html">Find Mailbox</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="how-it-works-section">
+    <div class="carousel-container">
+      <h2>Mailboxes in our neighborhood</h2>
+      <button class="prev-btn">&#10094;</button>
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-images">
+          <img src="./images/mailbox/mailbox1.svg" style="width: 280px; margin: 10px; border-radius: 10px;">
+          <img src="./images/mailbox/mailbox2.svg" style="width: 280px; margin: 10px; border-radius: 10px;">
+          <img src="./images/mailbox/mailbox3.svg" style="width: 280px; margin: 10px; border-radius: 10px;">
+          <img src="./images/mailbox/mailbox4.svg" style="width: 280px; margin: 10px; border-radius: 10px;">
+        </div>
+      </div>
+      <button class="next-btn">&#10095;</button>
+    </div>
+  </main>
+
+  <script>
+    const carouselImages = document.getElementById('carousel-images');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0;
+    const imageCount = 50; // 이미지 총 개수
+    const imageWidth = 280 + 20; // 이미지 가로 길이 + 여백
+
+    // 이미지 50개 동적 생성
+    // for (let i = 1; i <= imageCount; i++) {
+    //     const img = document.createElement('img');
+    //     img.src = `./images/mailbox/mailbox${i}.svg`;  // 이미지 파일 이름이 mailbox1.svg, mailbox2.svg 등의 형식이어야 함
+    //     img.alt = `Mailbox ${i}`;
+    //     img.style.width = '280px';
+    //     img.style.margin = '10px';
+    //     img.style.borderRadius = '10px';
+    //     carouselImages.appendChild(img);
+    //}
+
+    // 이미지 이동 로직
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < imageCount - 1) {
+            currentIndex++;
+            carouselImages.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            carouselImages.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
+    });
+  </script>
+</body>
+
+</html>
