@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mailboxes of Hope</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+    html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none; 
+      background-color: #f4f4f4;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #slide1 {
+      background-image: url('./images/about_bg1.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    #slide2 {
+      background-image: url('./images/about_bg2.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    #slide3 {
+      background-image: url('./images/about_bg3.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    #slide4 {
+      background-image: url('./images/about_bg4.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .title {
+      padding: 20px;
+    }
+
+    .title h1 {
+      font-size: 6.5rem;
+      margin: 10px;
+      text-align: center;
+      color: #fff;
+      text-shadow: -8px 3px 0px rgb(221 0 0);
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .text-box {
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      width: 30%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: -16px 15px 0px rgb(221 0 0);
+    }
+
+    .image-box {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      width: 200px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: -16px 15px 0px rgb(0, 0, 0);
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .image-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+    /* body {
+      margin: 0;
+      padding: 0;
+      perspective: 1px;
+      transform-style: preserve-3d;
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      font-family: Nunito;
+    }
+
+    h1 {
+      font-size: 250%;
+    }
+
+    p {
+      font-size: 140%;
+      line-height: 150%;
+      color: #333;
+    }
+
+    .slide {
+      position: relative;
+      padding: 25vh 10%;
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+      box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+      transform-style: inherit;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 35%;
+      width: 320px;
+      height: 240px;
+      transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+      padding: 10px;
+      border-radius: 5px;
+      background: rgba(240, 230, 220, .7);
+      box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+    }
+
+    img:last-of-type {
+      transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+    }
+
+    .slide:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+    }
+
+    .title {
+      width: 50%;
+      padding: 5%;
+      border-radius: 5px;
+      background: rgba(240, 230, 220, .7);
+      box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+    }
+
+    .slide:nth-child(2n) .title {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .slide:nth-child(2n+1) .title {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .slide,
+    .slide:before {
+      background: 50% 50% / cover;
+    }
+
+    .header {
+      text-align: center;
+      font-size: 175%;
+      color: #fff;
+      text-shadow: 0 2px 2px #000;
+    }
+
+    #title {
+      background-image: url("./images/header-image.png");
+      z-index: 2;
+    }
+
+    #title h1 {
+      transform: translateZ(.25px) scale(.75);
+      transform-origin: 50% 100%;
+    }
+
+    #slide1:before {
+      background-image: url("./images/background1.png");
+      transform: translateZ(-1px) scale(2);
+    }
+
+    #slide2 {
+      background-image: url("./images/background2.png");
+      z-index: 2;
+    }
+
+    #slide3:before {
+      background-image: url("./images/background3.png");
+      transform: translateZ(-1px) scale(2);
+    }
+
+    #slide4 {
+      background: #222;
+    } */
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="main.html" style="height: 20px;"><img src="./images/logo.png"></a>
+      <span>Letters to Strangers</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="write-letter.html">Write a Letter</a></li>
+        <li><a href="find-mailbox.html">Find Mailbox</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="slide1" class="slide">
+      <div class="title">
+        <h1>Little Red Mailboxes are</h1>
+        <h1>striking symbols of hope</h1>
+        <h1>By Danielle Puleo</h1>
+      </div>
+    </div>
+    <div id="slide2" class="slide">
+      <div class="text-box">
+        <p>
+          Pretty much everyone hits a low point 
+          sometime throughout their life. Hopelessness 
+          sets in, waves of sadness can crash in on us 
+          and there are times when we have no idea who 
+          or what to turn to. Sue Goodrich hit this point 
+          in her life after the sudden death of her mother. 
+          Consumed by grief, Goodrich would often visit 
+          the Glenmere Public Beach Access in Kill Devil 
+          Hills, where a gazebo sits atop a rising set of 
+          stairs to overlook the ocean. As she would cry 
+          in the gazebo, Goodrich said she felt her mom 
+          reaching out and saying: “Sue, if you feel sad, 
+          help somebody else out.”
+          Remembering an idea she had way back 
+          when, Goodrich decided to slowly start 
+          making her thoughts into a reality. Goodrich 
+          said she would run into Roy Edlund, the OBX 
+          Beach Bum photographer, at Starbucks every 
+          so often. Goodrich would talk with Edlund 
+          about her visits to Glenmere and eventually 
+          Edlund gave her a beautiful print of the beach 
+          access. “Something was missing,” Goodrich 
+          started, “the Little Red Mailbox.”
+        </p>
+      </div>
+    </div>
+    <div id="slide3" class="slide">
+      <div class="text-box">
+        <p>
+          After approaching the Town of Kill Devil Hills 
+          with her idea for installing a mailbox of hope, 
+          Goodrich said the town embraced the 
+          concept. In July of 2014, a small bench was 
+          built in the gazebo along with a bright red 
+          mailbox, containing a little notebook. "I had 
+          no idea how this would take off," Goodrich 
+          told The Coastland Times. People from all 
+          across the country would come and see the 
+          mailbox. They would write inspiring quotes, 
+          letters of loss and leave trinkets in the mailbox 
+          for Goodrich to find and read weekly. The 
+          Town of Kill Devil Hills started posting 
+          "Mailbox Monday" updates on their Facebook 
+          page, with photos of the hopeful notes and 
+          positive messages. Goodrich said the town is even 
+          creating a digital archive of all the notes 
+          left in the mailbox at Glenmere.
+        </p>
+      </div>
+      <div class="image-box">
+        <img src="./images/about_img3.png">
+        <p class="image-caption">Image Description</p>
+      </div>
+    </div>
+    <div id="slide4" class="slide">
+      <div class="text-box">
+        <p>
+          This sentiment of hope spread soon after Goodrich’s first 
+          mailbox was installed. Now there are 18 Little Red Mailboxes 
+          with locations in North Carolina, Virginia, Pennsylvania and 
+          New Jersey.  Goodrich mentioned that the one mailbox, 
+          located in Douglassville, Pa., was started after a mother and 
+          her daughter went to visit Glenmere. “She was trying to help 
+          her daughter heal from her best friend that took her own life,” 
+          Goodrich explained.  The message of the mailbox was so 
+          powerful that the mother decided to bring it back with her to 
+          their own community, where others were suffering and could 
+          use some hope. “The truth is that everybody needs hope,” 
+          Goodrich said. To help spread that message of hope to people 
+          who cannot access the mailboxes daily, Goodrich also posts 
+          pictures of the letters, notes, cards and postcards that people 
+          leave to her Facebook and Instagram pages. Others have 
+          done the same, including Adrienne Palma, a resident of 
+          Manteo. Palma had a mailbox installed at the north end of 
+          Manteo. She also checks the mail there on Mondays and will 
+          share the thoughts found within through another Facebook 
+          page. The purpose of the Little Red Mailbox is to share 
+          thoughts or messages to help brighten someone’s day; 
+          someone who may be going through a tough time or needs 
+          some inspiration.  It stands as a striking symbol of hope, 
+          reminding us all that everyone goes through hardships, but the 
+          world will always be filled with people to help get us through.
+        </p>
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>
