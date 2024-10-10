@@ -52,6 +52,8 @@
     }
 
     #unsubscribe {
+      margin-bottom: 100px;
+
       .letter {
         width: 84px;
         height: 72px;
@@ -134,21 +136,10 @@
               transform: translateZ(0);
 
               span {
-                font-size: 16px;
+                font-size: 30px;
                 font-weight: 600;
                 line-height: 24px;
-              }
-
-              .close {
-                cursor: pointer;
-
-                svg {
-                  width: 20px;
-                  height: 20px;
-                  display: block;
-                  fill: var(--text-color);
-                  padding: 2px;
-                }
+                color: #000;
               }
             }
 
@@ -165,71 +156,6 @@
                 font-size: 14px;
                 font-weight: 500;
                 color: var(--controls-text);
-              }
-
-              h1 {
-                color: #000;
-              }
-
-              div {
-                display: flex;
-                justify-content: center;
-
-                button {
-                  width: 64px;
-                  padding: 8px 0;
-                  margin: 0;
-                  background: var(--controls-background);
-
-                  &:not(:last-child) {
-                    margin-right: 16px;
-                  }
-
-                  svg {
-                    width: 20px;
-                    height: 20px;
-                    display: block;
-                    margin: 0 auto;
-                    fill: var(--controls-icon);
-                  }
-                }
-              }
-            }
-
-            .start {
-              position: absolute;
-              text-align: center;
-              white-space: nowrap;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              transition: opacity .3s;
-
-              button {
-                color: var(--confirm-color);
-                background: var(--confirm-background);
-                font-weight: bold;
-              }
-
-              small {
-                margin: 4px 0 0 0;
-                display: block;
-                font-style: italic;
-                font-size: 12px;
-                color: var(--text-color);
-              }
-            }
-
-            &:not(.idle) {
-              .start {
-                opacity: 0;
-                pointer-events: none;
-              }
-            }
-
-            &:not(.init) {
-              .ball {
-                opacity: 0;
               }
             }
           }
@@ -384,17 +310,6 @@
         }
       }
     }
-/* 
-    .letter-form {
-      background-color: white;
-      border: 2px solid #e3e6f1;
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    } */
 
     .letter-form h1 {
       color: #333;
@@ -428,13 +343,17 @@
     }
 
     .btn-cancel {
-      background-color: #D9534F;
+      background-color: #B32529;
       padding: 20px;
+      margin: 0px !important;
+      width: 180px;
     }
 
     .btn-submit {
-      background-color: #275EFE;
+      background-color: #1D4983;
       padding: 20px;
+      margin: 0px !important;
+      width: 580px;
     }
 
     .letter-counter {
@@ -469,17 +388,9 @@
         <div class="body">
           <div class="game idle">
             <div class="headline">
-              <span></span>
-              <div class="close">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z">
-                  </path>
-                </svg>
-              </div>
+              <span>Now let's write a letter!</span>
             </div>
             <div class="controls">
-              <h1>Now let's write a letter!</h1>
               <textarea id="letter" placeholder="Hello there!" maxlength="1000"></textarea>
               <div class="letter-counter">0/1000</div>
         
@@ -517,124 +428,19 @@
     var unsubscribe = $('#unsubscribe'),
       game = $('.game', unsubscribe),
       confirmButton = $('.confirm', unsubscribe),
-      upButton = $('.controls .up', game),
-      downButton = $('.controls .down', game),
       startButton = $('.start', game),
-      closeButton = $('.close', game);
-
-    var ball = {
-      elem: $('.ball', game),
-      x: 0,
-      y: 0,
-      top: 0,
-      left: 0
-    },
-      one = {
-        elem: $('.paddle.one', game),
-        y: 0,
-        top: 0,
-        score: 0
-      },
-      two = {
-        elem: $('.paddle.two', game),
-        y: 0,
-        score: 0
-      },
-      interval;
-
-    // function init() {
-
-    //   if (game.classList.contains('idle')) {
-
-    //     one.y = game.offsetHeight / 2 - one.elem.offsetHeight / 2;
-    //     two.y = game.offsetHeight / 2 - one.elem.offsetHeight / 2;
-
-    //     start();
-
-    //     game.classList.remove('idle');
-    //     game.classList.add('init');
-
-    //   }
-
-    // }
+      closeButton = $('.btn-cancel', game);
 
     confirmButton.addEventListener('click', e => {
       unsubscribe.classList.add('show-game');
     });
-
+    
     closeButton.addEventListener('click', e => {
       unsubscribe.classList.add('hide-game');
       unsubscribe.classList.remove('show-game');
       setTimeout(() => unsubscribe.classList.remove('hide-game'), 800);
     });
 
-    function start() {
-
-      ball.x = game.offsetWidth / 2 - ball.elem.offsetWidth / 2;
-      ball.y = game.offsetHeight / 2 - ball.elem.offsetHeight / 2;
-      ball.top = Math.random() * 2 + 2;
-      //ball.left = ((Math.random() < .5) ? 1 : -1) * (Math.random() * 2 + 2);
-      ball.left = (1 * Math.random() * 2 + 2);
-
-      interval = window.setInterval(render, 1000 / 60);
-    }
-
-    function render() {
-
-      one.y += one.top;
-      two.y = ball.y - two.elem.offsetHeight / 2;
-
-      ball.x += ball.left;
-      ball.y += ball.top;
-
-      if (one.y <= 0) {
-        one.y = 0;
-      }
-
-      if (two.y <= 0) {
-        two.y = 0;
-      }
-
-      if (one.y >= game.offsetHeight - one.elem.offsetHeight) {
-        one.y = game.offsetHeight - one.elem.offsetHeight;
-      }
-
-      if (two.y > game.offsetHeight - two.elem.offsetHeight) {
-        two.y = game.offsetHeight - two.elem.offsetHeight;
-      }
-
-      if (ball.y <= 0 || ball.y >= game.offsetHeight - ball.elem.offsetHeight) {
-        ball.top = -ball.top;
-      }
-
-      if (ball.x <= (one.elem.offsetWidth - 2)) {
-        if ((ball.y + ball.elem.offsetHeight / 2) > one.y && (ball.y + ball.elem.offsetHeight / 2) < one.y + one.elem.offsetHeight) {
-          ball.left = -ball.left;
-        } else {
-          two.score++;
-          setTimeout(() => game.classList.add('idle'), 500);
-          clearInterval(interval);
-          //start();
-        }
-      }
-
-      if (ball.x >= game.offsetWidth - ball.elem.offsetWidth - (two.elem.offsetWidth - 2)) {
-        if ((ball.y + ball.elem.offsetHeight / 2) > two.y && (ball.y + ball.elem.offsetHeight / 2) < two.y + two.elem.offsetHeight) {
-          ball.left = -ball.left;
-        } else {
-          one.score++
-          setTimeout(() => game.classList.add('idle'), 500);
-          clearInterval(interval);
-          //start();
-        }
-      }
-
-      one.elem.style.setProperty('--y', one.y + 'px');
-      two.elem.style.setProperty('--y', two.y + 'px');
-      ball.elem.style.setProperty('--x', ball.x + 'px');
-      ball.elem.style.setProperty('--y', ball.y + 'px');
-
-    }
   </script>
 </body>
 
