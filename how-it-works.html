@@ -40,6 +40,7 @@
       left: 2%;
       width: 9vw;
       transform: rotate(350deg);
+      z-index: -1;
     }
 
     .letter2 {
@@ -47,6 +48,7 @@
       right: -1%;
       width: 13vw;
       transform: rotate(20deg);
+      z-index: -1;
     }
 
     .letter3 {
@@ -54,6 +56,7 @@
       left: -1%;
       width: 9vw;
       transform: rotate(350deg);
+      z-index: -1;
     }
 
     .letter4 {
@@ -61,6 +64,7 @@
       right: 2%;
       width: 13vw;
       transform: rotate(20deg);
+      z-index: -1;
     }
 
     .how-it-works-section {
@@ -113,7 +117,7 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
 
     .card {
@@ -121,23 +125,47 @@
       padding: 2rem;
       border: 2px solid #C0392B;
       border-radius: 10px;
-      width: 35vw;
+      width: 27vw;
       height: 60vh;
       box-shadow: -11px 9px 0px rgba(192, 57, 43);
       text-align: center;
-      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .step {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      padding: 10px;
+      background-color: #B32529;
+      box-shadow: -11px 9px 0px rgba(179, 37, 41, 0.25);
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 2rem;
+    }
+
+    .step > p {
+      margin: 0;
+      color: #FFF;
     }
 
     .card img {
       width: 15vw;
       height: auto;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .card p {
-      font-size: 2vw;
+    .card > p {
+      font-size: 1vw;
       color: #000;
       font-weight: bold;
+      margin-bottom: 0;
     }
 
     @media screen and (max-width: 1728px) {
@@ -146,13 +174,13 @@
       }
 
       .card {
-        width: 35vw;
+        width: 24vw;
         height: 48vh;
       }
 
       .card img {
-        width: 15rem;
-        height: 15rem;
+        width: 11rem;
+        height: 14rem;
         margin-bottom: 1.5rem;
       }
 
@@ -179,7 +207,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="write-letter.html">Write a Letter</a></li>
-        <li><a href="find-mailbox.html">Find Mailbox</a></li>
+        <li><a href="find-mailbox.html">Find</a></li>
+        <li><a href="example.html">Example</a></li>
       </ul>
     </nav>
   </header>
@@ -190,15 +219,24 @@
     </div>
     <div class="cards-container">
       <div class="card">
+        <div class="step">
+          <p>STEP 01</p>
+        </div>
         <img src="./images/card1.svg">
         <p>Sign up and then write a letter.</p>
       </div>
       <div class="card">
+        <div class="step">
+          <p>STEP 02</p>
+        </div>
         <img src="./images/card2.svg">
         <p>When you submit the letter content to the site, we randomly select an address from those we have and send the
           letter.</p>
       </div>
       <div class="card">
+        <div class="step">
+          <p>STEP 03</p>
+        </div>
         <img src="./images/card3.svg">
         <p>A random member will receive the letter.</p>
       </div>

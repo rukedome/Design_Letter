@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>example</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+      body {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #345B8C;
+      }
+
+      .slide {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .letters {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .letter {
+        position: absolute;
+        width: 30vw;
+      }
+
+      .letter1 {
+        top: 5%;
+        left: 5%;
+      }
+
+      .letter2 {
+        top: 5%;
+        right: 5%;
+      }
+
+      .letter3 {
+        top: 45%;
+        left: 34%;
+      }
+
+      .letter4 {
+        top: 85%;
+        right: -5%;
+      }
+
+      .letter5 {
+        top: 85%;
+        left: 4%;
+      }
+      
+      .letter6 {
+        top: 37%;
+        left: -3%;
+      }
+
+      .letter7 {
+        top: 40%;
+        left: 37%;
+      }
+
+      .letter8 {
+        top: 58%;
+        right: -13%;
+      }
+
+      .mailbox {
+        width: 44vw;
+        height: auto;
+      }
+
+      .slide3 {
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+      }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="main.html" style="height: 20px;"><img src="./images/logo.png"></a>
+      <span>Letters to Strangers</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="write-letter.html">Write a Letter</a></li>
+        <li><a href="find-mailbox.html">Find</a></li>
+        <li><a href="example.html">Example</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="slide slide1">
+      <img src="./images/letter_b1.svg" class="letter letter1">
+      <img src="./images/letter_b2.svg" class="letter letter2">
+      <img src="./images/letter_b3.svg" class="letter letter3">
+      <img src="./images/letter_b4.svg" class="letter letter4">
+      <img src="./images/letter_b5.svg" class="letter letter5">
+    </div>
+    <div class="slide slide2">
+      <img src="./images/letter_b6.svg" class="letter letter6">
+      <img src="./images/letter_b7.svg" class="letter letter7">
+      <img src="./images/letter_b8.svg" class="letter letter8">
+    </div>
+    <div class="slide slide3">
+      <img src="./images/blueMailBox.svg" alt="Mailbox" class="mailbox">
+    </div>
+  </main>
+</body>
+
+</html>
