@@ -124,6 +124,7 @@
 
     // 이미지 10개 동적 생성 (예시로 좌표 추가)
     const mailboxLocations = [
+      { lat: 40.73611, lng: -73.992111 },
       { lat: 37.7749, lng: -122.4194 }, // San Francisco, CA
       { lat: 34.0522, lng: -118.2437 }, // Los Angeles, CA
       { lat: 40.7128, lng: -74.0060 },  // New York, NY
@@ -144,7 +145,7 @@
 
       // 이미지 클릭 시 해당 메일박스 위치의 구글 맵 링크로 이동
       img.addEventListener('click', () => {
-        const location = mailboxLocations[i];
+        const location = mailboxLocations[i-1];
         const googleMapsUrl = `https://www.google.com/maps?q=${location.lat},${location.lng}`;
         window.open(googleMapsUrl, '_blank');
       });
